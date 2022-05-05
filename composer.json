@@ -15,7 +15,7 @@
     ],
     "support": {
         "source": "https://github.com/schatzopoulos/yii2-scholar-indicators",
-        "issues": "https://github.com/schatzopoulos/yii2--scholar-indicators/issues"
+        "issues": "https://github.com/schatzopoulos/yii2-scholar-indicators/issues"
     },
     "autoload": {
         "psr-4": {
