@@ -16,6 +16,8 @@ to the required section of your `composer.json` file and execute `composer updat
 
 ## Basic Usage
 ```
+<?php
+
 use schatzopoulos\scholarindicators\ScholarIndicators;
 
 # mapping of impact fields
@@ -83,6 +85,8 @@ $paper_min_year = $indicators->get_paper_min_year();
 $academic_age = $indicators->get_academic_age($paper_min_year);
 
 $responsible_academic_age = ScholarIndicators::get_responsible_academic_age($academic_age, $rag_data, $paper_min_year);
+
+?>
 ```
 
 ## Local Development
