@@ -18,11 +18,58 @@ to the required section of your `composer.json` file and execute `composer updat
 ```
 use schatzopoulos\scholarindicators\ScholarIndicators;
 
-$indicators = new ScholarIndicators(
-            Yii::$app->params['impact_fields'], 
-            array_flip(Yii::$app->params['work_types']), 
-            $impact_data
-);
+# mapping of impact fields
+$impact_fields = [
+  'popularity' => 'attrank',
+  'influence' => 'pagerank',
+  'impulse' => '3y_cc',
+  'citations' => 'citation_count',
+  'year' => 'year'
+ ];
+
+# different work types
+$work_types = [
+  'publication' => '',
+  'dataset' => 1,
+];
+
+# provide impact data 
+$impact_data = [
+array (
+  0 => [
+    'doi' => '10.1093/nar/gkx1141',
+    'is_oa' => '1',
+    'type' => NULL,
+    'attrank' => '0.0000006354301544051926',
+    'pagerank' => '0.000000028758916907015535',
+    '3y_cc' => '229',
+    'citation_count' => '406',
+    'year' => '2017',
+  ],
+  1 => [
+    'doi' => '10.1093/nar/gkw455',
+    'is_oa' => '1',
+    'type' => NULL,
+    'attrank' => '0.000000029483090596793',
+    'pagerank' => '0.0000000074224020960741795',
+    '3y_cc' => '23',
+    'citation_count' => '34',
+    'year' => '2016',
+  ]
+];
+
+# academic leaves 
+$rag_data = [
+  0 => [
+    'id' => '159',
+    'orcid' => '0000-0003-1714-5225',
+    'start_date' => '2022-05-01',
+    'end_date' => '2022-05-25',
+    'description' => 'Parental Leave',
+  ]
+];
+
+$indicators = new ScholarIndicators($impact_fields, $work_types, $impact_data);
 
 $work_types_num = $indicators->work_types_num();
 $citations_num = $indicators->citations_num();
