@@ -1,0 +1,25 @@
+{
+    "name": "schatzopoulos/yii2-scholar-indicators",
+    "description": "This extension facilitates the computation of BIP! Scholar research-level impact indicators.",
+    "keywords": ["yii2", "extension", "helper", "impact", "impact indicators", "research assessement", "researchers"],
+    "type": "yii2-extension",
+    "minimum-stability": "dev",
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "authors": [
+        {
+            "name": "serafeim",
+            "email": "s.chatzopoulos@gmail.com"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/schatzopoulos/yii2-scholar-indicators",
+        "issues": "https://github.com/schatzopoulos/yii2--scholar-indicators/issues"
+    },
+    "autoload": {
+        "psr-4": {
+            "schatzopoulos\\scholarindicators\\": ""
+        }
+    }
+}
