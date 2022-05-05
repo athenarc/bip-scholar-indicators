@@ -3,7 +3,6 @@
 namespace schatzopoulos\scholarindicators;
 
 use Yii;
-use yii\base\Model;
 
 class ScholarIndicators {
 
