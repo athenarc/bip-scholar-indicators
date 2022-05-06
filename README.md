@@ -37,7 +37,6 @@ $work_types = [
 
 # provide impact data 
 $impact_data = [
-array (
   0 => [
     'doi' => '10.1093/nar/gkx1141',
     'is_oa' => '1',
