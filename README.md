@@ -1,4 +1,4 @@
-# yii2-scholar-indicators
+# BIP! Scholar Indicators
 This extension facilitates the computation of [BIP! Scholar](https://bip.imis.athena-innovation.gr/scholar/profile) research-level impact indicators.
 
 ## Installation
