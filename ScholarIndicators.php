@@ -1,7 +1,5 @@
 <?php
 
-# IMPORTANT!
-# Scholar indicators are computed with this class BUT PLEASE keep the relevant Yii2 extension updated (see: https://github.com/athenarc/bip-scholar-indicators)
 # Please see details on how to update the extension here:
 # https://www.yiiframework.com/wiki/846/yii2-how-to-createdevelop-a-new-extension-using-composer-locally-without-version-control-or-git
 
