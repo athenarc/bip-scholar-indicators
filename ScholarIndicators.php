@@ -1,11 +1,6 @@
 <?php
 
-# Please see details on how to update the extension here:
-# https://www.yiiframework.com/wiki/846/yii2-how-to-createdevelop-a-new-extension-using-composer-locally-without-version-control-or-git
-
 namespace schatzopoulos\scholarindicators;
-
-use Yii;
 
 /**
  * ScholarIndicators class computes various researcher-level indicators.
@@ -315,7 +310,7 @@ class ScholarIndicators
 
         $total_remaining_interval = ($total_remaining_interval <= 0)
             ? 0
-            : Yii::$app->formatter->asDecimal(($total_remaining_interval / 365), 2);
+            : number_format(($total_remaining_interval / 365), 2);
 
         return $total_remaining_interval;
     }

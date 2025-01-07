@@ -1,5 +1,26 @@
 # BIP! Scholar Indicators
-This extension facilitates the computation of [BIP! Scholar](https://bip.imis.athena-innovation.gr/scholar/profile) research-level impact indicators.
+This extension facilitates the computation of [BIP! Scholar](https://bip.imis.athena-innovation.gr/scholar) research-level impact indicators.
+
+
+## Example usage
+
+This [example](./example.php) demonstrates how to use the `ScholarIndicators` class to compute various researcher-level scholarly indicators based on sample data. 
+It implements the following indicators:
+
+- **Work Types Count**: Counts the number of works (papers, datasets, software, etc.).
+- **Total Citations**: Sums up the total citation count across all works.
+- **h-Index & i10-Index**: Computes the h-index and i10-index based on citation counts.
+- **Popularity, Influence, and Impulse Scores**: Sums the popularity, influence, and impulse scores for all works.
+- **Popular & Influential Works Count**: Counts popular and infuential works (i.e., those that have impact class other than the lowest one).
+- **Open Access Papers Percentage**: Calculates the percentage of open access papers.
+- **Academic Age**: Computes the academic age based on the earliest paper.
+- **Responsible Academic Age**: Considers periods of inactivity to adjust academic age.
+
+To run the example script, simply download or clone the repository and execute the `example.php` file with PHP:
+
+```bash
+php example.php
+```
 
 ## Installation in Yii2 projects
 The preferred way to install this extension is through composer.
@@ -14,79 +35,7 @@ or add
 ```
 to the required section of your `composer.json` file and execute `composer update`.
 
-## Basic Usage
-```
-<?php
 
-use schatzopoulos\scholarindicators\ScholarIndicators;
-
-# mapping of impact fields
-$impact_fields = [
-  'popularity' => 'attrank',
-  'influence' => 'pagerank',
-  'impulse' => '3y_cc',
-  'citations' => 'citation_count',
-  'year' => 'year'
- ];
-
-# different work types
-$work_types = [
-  'publication' => '',
-  'dataset' => 1,
-];
-
-# provide impact data 
-$impact_data = [
-  0 => [
-    'doi' => '10.1093/nar/gkx1141',
-    'is_oa' => '1',
-    'type' => NULL,
-    'attrank' => '0.0000006354301544051926',
-    'pagerank' => '0.000000028758916907015535',
-    '3y_cc' => '229',
-    'citation_count' => '406',
-    'year' => '2017',
-  ],
-  1 => [
-    'doi' => '10.1093/nar/gkw455',
-    'is_oa' => '1',
-    'type' => NULL,
-    'attrank' => '0.000000029483090596793',
-    'pagerank' => '0.0000000074224020960741795',
-    '3y_cc' => '23',
-    'citation_count' => '34',
-    'year' => '2016',
-  ]
-];
-
-# academic leaves 
-$rag_data = [
-  0 => [
-    'id' => '159',
-    'orcid' => '0000-0003-1714-5225',
-    'start_date' => '2022-05-01',
-    'end_date' => '2022-05-25',
-    'description' => 'Parental Leave',
-  ]
-];
-
-$indicators = new ScholarIndicators($impact_fields, $work_types, $impact_data);
-
-$work_types_num = $indicators->work_types_num();
-$citations_num = $indicators->citations_num();
-$h_index = $indicators->h_index();
-$i10_index = $indicators->i10_index();
-$popularity = $indicators->popularity_sum();
-$influence = $indicators->influence_sum();
-$impulse = $indicators->impulse_sum();
-$openness = $indicators->open_papers_percentage();
-$paper_min_year = $indicators->get_paper_min_year();
-$academic_age = $indicators->get_academic_age($paper_min_year);
-
-$responsible_academic_age = ScholarIndicators::get_responsible_academic_age($academic_age, $rag_data, $paper_min_year);
-
-?>
-```
 
 ## Local Development
 * git clone this repository in a directory
